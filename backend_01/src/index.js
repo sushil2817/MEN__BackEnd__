@@ -12,14 +12,6 @@ dotenv.config({
 
 
 connectDB( )
-
-
-
-
-
-
-
-
 /*
 
 // first approach for DB connection
