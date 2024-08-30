@@ -1,3 +1,10 @@
 PORT = 8000
-MONGODB_URI = mongodb+srv://sushil:"password"@cluster0.x43kr.mongodb.net/
-# MONGODB_URI = mongodb+srv://sushil:"password"@cluster0.x43kr.mongodb.net/
+CORS_ORIGIN=*
+MONGODB_URI = mongodb+srv://sushil:"password"@cluster0.6uj79.mongodb.net
+
+
+
+ACCESS_TOKEN_SECRET = OTUCkcyqgZAaM0ogRHVIG9GG_Gzh9zMocyO3UtNdDNtoJ0X0-5n3DmVkx08MCFRSLD9cv1kBfLwK7fdO
+ACCESS_TOKEN_EXPIRY = 1d
+REFRESH_TOKEN_SECTRET = thisis-refersh_token_0GHAJDWEFJEFwdcdwbfkhjewdew
+REFRESH_TOKEN_EXPIRY = 10d
