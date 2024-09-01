@@ -1,6 +1,6 @@
 PORT = 8000
 CORS_ORIGIN=*
-MONGODB_URI = mongodb+srv://sushil:"password"@cluster0.6uj79.mongodb.net
+MONGODB_URI = mongodb+srv://sushil:sushil123@@cluster0.6uj79.mongodb.net
 
 
 
