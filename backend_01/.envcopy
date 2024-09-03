@@ -1,6 +1,6 @@
 PORT = 8000
 CORS_ORIGIN=*
-MONGODB_URI = mongodb+srv://sushil:sushil123@@cluster0.6uj79.mongodb.net
+MONGODB_URI = mongodb+srv://tony281723:Sushil10@cluster0.6uj79.mongodb.net/
 
 
 
@@ -8,3 +8,7 @@ ACCESS_TOKEN_SECRET = OTUCkcyqgZAaM0ogRHVIG9GG_Gzh9zMocyO3UtNdDNtoJ0X0-5n3DmVkx0
 ACCESS_TOKEN_EXPIRY = 1d
 REFRESH_TOKEN_SECTRET = thisis-refersh_token_0GHAJDWEFJEFwdcdwbfkhjewdew
 REFRESH_TOKEN_EXPIRY = 10d
+
+CLOUDINARY_CLOUDNAME = dji3mnsn4
+CLOUDINARY_API_KEY = 743739549922644
+CLOUDINARY_API_SECRET = E1PUK1IZVab_t80DZ8mFz_DnEp0
