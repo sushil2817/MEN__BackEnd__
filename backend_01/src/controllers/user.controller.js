@@ -15,12 +15,12 @@ const generateAccessTokenAndRefereshToken = async (userId) => {
     await user.save({ validateBeforeSave: false });
 
     return { accessToken, refreshToken };
-    } catch (error) {
+  } catch (error) {
     throw new ApiError(
-        500,
-        "Something went wrong while generationg referesh and access"
+      500,
+      "Something went wrong while generationg referesh and access"
     );
-    }
+  }
 };
 
 const registerUser = asyncHandler(async (req, res) => {
@@ -34,7 +34,7 @@ const registerUser = asyncHandler(async (req, res) => {
   // check for user creation
   // return response
 
-    const { fullName, email, username, password } = req.body;
+  const { fullName, email, username, password } = req.body;
   // console.log("email: ",email);
   // console.log("fullname: ",fullName);
   // console.log("username : ",username);
@@ -44,11 +44,11 @@ const registerUser = asyncHandler(async (req, res) => {
   //     throw new ApiError(400,"fulname is required")
   // }
 
-    if (
+  if (
     [fullName, email, username, password].some((field) => field?.trim() === "")
-    ) {
+  ) {
     throw new ApiError(400, "All fields are required");
-    }
+  }
 
   const existedUser = await User.findOne({
     $or: [{ username }, { email }],
@@ -338,31 +338,31 @@ const updateUserCoverImage = asyncHandler(async (req, res) => {
 });
 
 const getUserChannelProfile = asyncHandler(async (req, res) => {
-    const { username } = req.params;
-    if (!username?.trim()) {
+  const { username } = req.params;
+  if (!username?.trim()) {
     throw new ApiError(400, "username is missing");
-    }
-    const channel = await User.aggregate([
+  }
+  const channel = await User.aggregate([
     {
-        $match: {
+      $match: {
         username: username?.toLowerCase(),
-        },
+      },
     },
     {
-        $lookup: {
+      $lookup: {
         from: "Subscription", //subscriptions
         localField: "_id",
         foreignField: "channel",
         as: "subscribers",
-        },
+      },
     },
     {
-        $lookup: {
+      $lookup: {
         from: "Subscription", //subscriptions
         localField: "_id",
         foreignField: "subscriber",
         as: "subscribedTo",
-        },
+      },
     },
     {
       $addFields: {
@@ -406,7 +406,7 @@ const getUserChannelProfile = asyncHandler(async (req, res) => {
 
 const getWatchHistory = asyncHandler(async (req, res) => {
   // req.user._id  //give_mongodb_id
-    const user = await User.aggregate([
+  const user = await User.aggregate([
     {
       $match: {
         _id: new mongoose.Types.ObjectId(req.user._id),
@@ -446,28 +446,28 @@ const getWatchHistory = asyncHandler(async (req, res) => {
         ],
       },
     },
-    ]);
-    return res
+  ]);
+  return res
     .status(200)
     .json(
-        new ApiResponse(
+      new ApiResponse(
         200,
         user[0].watchHistory,
         "Watch history fetch successfully"
-        )
+      )
     );
 });
 
 export {
-    registerUser,
-    loginUser,
-    logoutUser,
-    refreshAccessToken,
-    changeCurrentPassword,
-    getCurrentUser,
-    updateAccountDetails,
-    updateUserAvatar,
-    updateUserCoverImage,
-    getUserChannelProfile,
-    getWatchHistory,
+  registerUser,
+  loginUser,
+  logoutUser,
+  refreshAccessToken,
+  changeCurrentPassword,
+  getCurrentUser,
+  updateAccountDetails,
+  updateUserAvatar,
+  updateUserCoverImage,
+  getUserChannelProfile,
+  getWatchHistory,
 };
